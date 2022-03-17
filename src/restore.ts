@@ -36,13 +36,13 @@ async function run(): Promise<void> {
         );
 
         if (!cacheKey) {
+            utils.setCacheRestoredOutput(false);
             core.info(
                 `Cache not found for input keys: ${[
                     primaryKey,
                     ...restoreKeys
                 ].join(", ")}`
             );
-
             return;
         }
 
@@ -51,6 +51,7 @@ async function run(): Promise<void> {
 
         const isExactKeyMatch = utils.isExactKeyMatch(primaryKey, cacheKey);
         utils.setCacheHitOutput(isExactKeyMatch);
+        utils.setCacheRestoredOutput(true);
         core.info(`Cache restored from key: ${cacheKey}`);
     } catch (error: unknown) {
         core.setFailed((error as Error).message);

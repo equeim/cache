@@ -2,11 +2,13 @@ export enum Inputs {
     Key = "key",
     Path = "path",
     RestoreKeys = "restore-keys",
-    UploadChunkSize = "upload-chunk-size"
+    UploadChunkSize = "upload-chunk-size",
+    SaveCache = "save-cache"
 }
 
 export enum Outputs {
-    CacheHit = "cache-hit"
+    CacheHit = "cache-hit",
+    CacheRestored = "cache-restored"
 }
 
 export enum State {
