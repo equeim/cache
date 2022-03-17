@@ -26,6 +26,10 @@ export function setCacheHitOutput(isCacheHit: boolean): void {
     core.setOutput(Outputs.CacheHit, isCacheHit.toString());
 }
 
+export function setCacheRestoredOutput(isCacheRestored: boolean): void {
+    core.setOutput(Outputs.CacheRestored, isCacheRestored.toString());
+}
+
 export function setOutputAndState(key: string, cacheKey?: string): void {
     setCacheHitOutput(isExactKeyMatch(key, cacheKey));
     // Store the matched cache key if it exists
@@ -73,4 +77,11 @@ export function getInputAsInt(
         return undefined;
     }
     return value;
+}
+
+export function getInputAsBool(
+    name: string,
+    options?: core.InputOptions
+): boolean {
+    return core.getInput(name, options) === "true";
 }

@@ -27,6 +27,11 @@ async function run(): Promise<void> {
             return;
         }
 
+        if (!utils.getInputAsBool(Inputs.SaveCache)) {
+            core.info("Cache saving is disabled, not saving cache.");
+            return;
+        }
+
         const state = utils.getCacheState();
 
         // Inputs are re-evaluted before the post action, so we want the original key used for restore
