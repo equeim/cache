@@ -18,6 +18,10 @@ inputs:
     description: 'Enable cache saving'
     required: false
     default: 'true'
+  reevaluate-key-when-saving:
+    description: 'Re-eavaluate key input when saving cache'
+    required: false
+    default: 'false'
 outputs:
   cache-hit:
     description: 'A boolean value to indicate an exact match was found for the primary key'
